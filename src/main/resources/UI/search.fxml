@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Tab fx:id="searchTab" text="Search" xmlns:fx="http://javafx.com/fxml" fx:controller="com.spyone.gui.search.SearchController">
+  <content>
+    <AnchorPane id="heatTab">
+      <children>
+        <HBox prefHeight="23.0" spacing="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+          <children>
+            <Label prefWidth="50.000099999997474" text="Search" />
+            <TextField prefWidth="465.0" />
+            <CheckBox mnemonicParsing="false" text="RE" />
+          </children>
+        </HBox>
+        <HBox spacing="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+        <TextArea id="SearchTextArea" layoutX="10.0" layoutY="86.0" wrapText="true" />
+        <Button fx:id="searchButton" layoutX="227.0" layoutY="54.0" mnemonicParsing="false" text="Search" />
+      </children>
+    </AnchorPane>
+  </content>
+</Tab>
