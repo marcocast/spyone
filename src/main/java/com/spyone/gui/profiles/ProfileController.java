@@ -3,7 +3,6 @@ package com.spyone.gui.profiles;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,12 +15,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.Callback;
 
+import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.spyone.model.profiles.SpyOneProfile;
 import com.spyone.model.profiles.da.DiskStoredProfiles;
 
+@Component
 public class ProfileController implements Initializable {
 	
-	private DiskStoredProfiles profilesManager = new DiskStoredProfiles();
+	@Autowired
+	private DiskStoredProfiles profilesManager;
 
 	@FXML private TableView<SpyOneProfile> tableView;
     @FXML private TableColumn<SpyOneProfile, String> profileNameColumn;

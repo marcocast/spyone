@@ -4,7 +4,6 @@ package com.spyone.model.profiles;
 import javafx.beans.property.SimpleStringProperty;
 
 import org.grep4j.core.model.Profile;
-import org.grep4j.core.model.ServerDetails;
 
 public final class SpyOneProfile extends SerializableProfile {
 

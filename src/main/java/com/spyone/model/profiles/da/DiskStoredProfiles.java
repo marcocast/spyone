@@ -15,8 +15,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
 import com.spyone.model.profiles.SpyOneProfile;
 
+@Component
 public class DiskStoredProfiles implements ProfilesDao, Comparator<SpyOneProfile> {
 
 	private static final String PROFILE_EXTENSION = ".prof";

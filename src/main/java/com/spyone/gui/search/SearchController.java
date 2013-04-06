@@ -39,7 +39,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 
-@SuppressWarnings("restriction")
+import org.springframework.stereotype.Component;
+
+@Component
 public class SearchController implements Initializable {
 
 	@FXML
