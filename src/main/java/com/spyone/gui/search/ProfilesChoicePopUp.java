@@ -27,11 +27,14 @@ public class ProfilesChoicePopUp {
 
 	
 	public Popup showPopUp(List<SpyOneProfile> selectedProfile){
+				
+		selectedProfile.clear();
 		
         Button done = new Button("Done");
 
         VBox popUpVBox = new VBox();
         popUpVBox.setStyle("-fx-background-color: #000000;");
+        profilesManager.refreshProfiles();
         for (SpyOneProfile profile : profilesManager.getAllProfiles()) {
         	popUpVBox.getChildren().add(buildSelectableProfileLine(profile,selectedProfile));            
 		}
