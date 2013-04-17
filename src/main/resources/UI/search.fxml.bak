@@ -8,12 +8,12 @@
 
 <Tab fx:id="searchTab" text="Search" xmlns:fx="http://javafx.com/fxml" fx:controller="com.spyone.gui.search.SearchController">
   <content>
-    <AnchorPane fx:id="searchPane" id="heatTab" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-1.0" prefHeight="303.0" prefWidth="733.0" rotate="0.0">
+    <AnchorPane id="heatTab" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-1.0" prefHeight="303.0" prefWidth="733.0" rotate="0.0">
       <children>
         <HBox prefHeight="23.0" spacing="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
           <children>
             <Label prefWidth="50.000099999997474" text="Search" />
-            <TextField fx:id="textSearch" prefWidth="465.0">
+            <TextField prefWidth="465.0">
               <effect>
                 <DropShadow />
               </effect>
@@ -22,7 +22,7 @@
           </children>
         </HBox>
         <HBox spacing="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-        <TextArea fx:id="searchTextArea" id="SearchTextArea" layoutX="10.0" layoutY="86.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="888.0" wrapText="true">
+        <TextArea id="SearchTextArea" layoutX="10.0" layoutY="86.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="888.0" wrapText="true">
           <effect>
             <DropShadow height="25.0" radius="12.0" width="25.0">
               <input>
@@ -31,8 +31,7 @@
             </DropShadow>
           </effect>
         </TextArea>
-        <Button fx:id="selectProfilesButton" layoutX="141.0" layoutY="54.0" mnemonicParsing="false" text="Select Profiles" />
-        <Button fx:id="searchButton" layoutX="387.0" layoutY="54.0" mnemonicParsing="false" text="Search" />        
+        <Button fx:id="searchButton" layoutX="227.0" layoutY="54.0" mnemonicParsing="false" text="Search" />
       </children>
     </AnchorPane>
   </content>
