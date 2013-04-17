@@ -21,6 +21,7 @@ import javafx.stage.Popup;
 
 import org.grep4j.core.model.Profile;
 import org.grep4j.core.model.ProfileBuilder;
+import org.grep4j.core.options.Option;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -36,6 +37,9 @@ public class SearchController implements Initializable {
 	public Button selectProfilesButton;
 
 	@FXML
+	public Button selectOptionsButton;
+
+	@FXML
 	private AnchorPane searchPane;
 
 	@FXML
@@ -46,11 +50,17 @@ public class SearchController implements Initializable {
 
 	@Autowired
 	ProfilesChoicePopUp profilesChoicePopUp;
+	
+	@Autowired
+	OptionsChoicePopUp optionsChoicePopUp;
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		// this is list will be passed and populated in the profilesChoicePopUp
 		final List<SpyOneProfile> selectedProfile = new ArrayList<SpyOneProfile>();
+		
+		// this is list will be passed and populated in the optionsChoicePopUp
+		final List<Option> selectedOptions = new ArrayList<Option>();
 
 		// this button display the popup
 		if (selectProfilesButton != null) {
@@ -70,16 +80,34 @@ public class SearchController implements Initializable {
 			});
 		}
 
+		// this button display the popup
+		if (selectOptionsButton != null) {
+			selectOptionsButton.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent t) {
+
+					final Popup popup = optionsChoicePopUp
+							.showPopUp(selectedOptions);
+					if (popup.isShowing()) {
+						popup.hide();
+					} else {
+						popup.show(searchPane.getScene().getWindow());
+					}
+				}
+			});
+		}
+
 		// this button run the grep and populate the textarea
 		if (searchButton != null) {
 			searchButton.setOnAction(new EventHandler<ActionEvent>() {
-
+				Option[] optionsToArray = new Option[selectedOptions.size()];
 				@Override
 				public void handle(ActionEvent t) {
 					List<Profile> profilesToGrep = buildProfiles(selectedProfile);
 					searchTextArea.setText(grep(
 							regularExpression(textSearch.getText()),
-							on(profilesToGrep)).toString());
+							on(profilesToGrep), selectedOptions.toArray(optionsToArray)).toString());
 
 				}
 
@@ -87,22 +115,25 @@ public class SearchController implements Initializable {
 						List<SpyOneProfile> selectedProfile) {
 					List<Profile> profilesToGrep = new ArrayList<Profile>();
 					for (SpyOneProfile spyOneProfile : selectedProfile) {
-						if(spyOneProfile.getHost().equalsIgnoreCase("localhost")){
+						if (spyOneProfile.getHost().equalsIgnoreCase(
+								"localhost")) {
 							Profile profile = ProfileBuilder.newBuilder()
 									.name(spyOneProfile.getProfileName())
 									.filePath(spyOneProfile.getFilePath())
 									.onLocalhost().build();
 							profilesToGrep.add(profile);
-						}else{
-							Profile profile = ProfileBuilder.newBuilder()
+						} else {
+							Profile profile = ProfileBuilder
+									.newBuilder()
 									.name(spyOneProfile.getProfileName())
 									.filePath(spyOneProfile.getFilePath())
 									.onRemotehost(spyOneProfile.getHost())
-									.credentials(spyOneProfile.getUser(),spyOneProfile.getPassword())
+									.credentials(spyOneProfile.getUser(),
+											spyOneProfile.getPassword())
 									.build();
 							profilesToGrep.add(profile);
 						}
-						
+
 					}
 					return profilesToGrep;
 				}
