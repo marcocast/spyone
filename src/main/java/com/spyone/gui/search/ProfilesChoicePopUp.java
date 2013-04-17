@@ -54,7 +54,12 @@ public class ProfilesChoicePopUp {
         });
         return popup;
 	}
-
+	
+	/*
+	 * this method build a line (hbox) for each profile found in the DB. 
+	 * Also add the logic to add the checked profile to a list that is then used by the SearchController.
+	 * TODO: if this is reopened, it should keep checked the checkboxes previously selected
+	 */
 	private Node buildSelectableProfileLine(final SpyOneProfile profile, final List<SpyOneProfile> selectedProfile) {
 		HBox hbox = new HBox();
 		final CheckBox profileToChoose = new CheckBox(profile.getProfileName());

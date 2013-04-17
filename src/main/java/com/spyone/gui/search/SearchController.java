@@ -51,16 +51,17 @@ public class SearchController implements Initializable {
 	
 	
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		//this is list will be passed and populated in the profilesChoicePopUp
 		final List<SpyOneProfile> selectedProfile = new ArrayList<SpyOneProfile>();	
 
+		//this button display the popup
 		if (selectProfilesButton != null) {			
 			selectProfilesButton.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent t) {
 							
-				final Popup popup = profilesChoicePopUp
-						.showPopUp(selectedProfile);
+				final Popup popup = profilesChoicePopUp.showPopUp(selectedProfile);
 				if (popup.isShowing()) {
 					popup.hide();
 				} else {
@@ -70,6 +71,7 @@ public class SearchController implements Initializable {
 			});
 		}
 		
+		//this button run the grep and populate the textarea
 		if (searchButton != null) {			
 			searchButton.setOnAction(new EventHandler<ActionEvent>() {
 
