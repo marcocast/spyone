@@ -8,35 +8,37 @@
 
 <Tab fx:id="searchTab" text="Search" xmlns:fx="http://javafx.com/fxml" fx:controller="com.spyone.gui.search.SearchController">
   <content>
-    <AnchorPane fx:id="searchPane" id="heatTab" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-1.0" prefHeight="303.0" prefWidth="733.0" rotate="0.0">
+    <AnchorPane id="heatTab" fx:id="searchPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-1.0" prefHeight="303.0" prefWidth="733.0" rotate="0.0">
       <children>
-      <VBox>
-        <HBox prefHeight="23.0" spacing="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
-          <children>
-            <Label prefWidth="50.000099999997474" text="Search" />
-            <TextField fx:id="textSearch" prefWidth="465.0">
-              <effect>
-                <DropShadow />
-              </effect>
-            </TextField>
-            <CheckBox mnemonicParsing="false" selected="true" text="RE" wrapText="false" />
-          </children>
-        </HBox>
-        <HBox prefHeight="23.0" spacing="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
-        <Button fx:id="selectProfilesButton" mnemonicParsing="false" text="Select Profiles" />
-        <Button fx:id="selectOptionsButton"  mnemonicParsing="false" text="Select Options" />
-        <Button fx:id="searchButton"  mnemonicParsing="false" text="Search" />
-        </HBox>    
-        <HBox spacing="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-        <TextArea fx:id="searchTextArea" id="SearchTextArea" layoutX="10.0" layoutY="86.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500" prefWidth="1024" wrapText="true">
-          <effect>
-            <DropShadow height="25.0" radius="12.0" width="25.0">
-              
-            </DropShadow>
-          </effect>
-        </TextArea>
-        
-        </VBox>    
+        <VBox>
+          <HBox prefHeight="23.0" spacing="10.0">
+            <children>
+              <Label prefWidth="50.000099999997474" text="Search" />
+              <TextField fx:id="textSearch" prefWidth="465.0">
+                <effect>
+                  <DropShadow />
+                </effect>
+              </TextField>
+              <CheckBox mnemonicParsing="false" selected="true" text="RE" wrapText="false" />
+            </children>
+          </HBox>
+          <HBox prefHeight="23.0" spacing="10.0">
+            <Button fx:id="selectProfilesButton" mnemonicParsing="false" text="Select Profiles" />
+            <Button fx:id="selectOptionsButton" mnemonicParsing="false" text="Select Options" />
+            <Button fx:id="searchButton" mnemonicParsing="false" text="Search" />            
+          </HBox>
+          <HBox fx:id="expandLinkHBox" alignment="TOP_RIGHT">
+              <children>
+                <Hyperlink fx:id="expandLink" text="Expand" />
+              </children>
+            </HBox>
+          <HBox spacing="10.0" />
+          <TextArea id="SearchTextArea" fx:id="searchTextArea" editable="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1024.0" wrapText="true" VBox.vgrow="ALWAYS">
+            <effect>
+              <DropShadow height="25.0" radius="12.0" width="25.0" />
+            </effect>
+          </TextArea>
+        </VBox>
       </children>
     </AnchorPane>
   </content>
