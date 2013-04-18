@@ -2,9 +2,11 @@ package com.spyone.model.profiles;
 
 
 import javafx.beans.property.SimpleStringProperty;
+import lombok.EqualsAndHashCode;
 
 import org.grep4j.core.model.Profile;
 
+@EqualsAndHashCode(callSuper=true)
 public final class SpyOneProfile extends SerializableProfile {
 
 		private static final long serialVersionUID = 5710677228960272139L;
@@ -14,9 +16,6 @@ public final class SpyOneProfile extends SerializableProfile {
 		private transient SimpleStringProperty guiHost = new SimpleStringProperty("");
 		private transient SimpleStringProperty guiUser = new SimpleStringProperty("");
 		private transient SimpleStringProperty guiPassword = new SimpleStringProperty("");
-	   //private Integer port;
-	   //private String privateKeyLocation;
-	   //private boolean isPasswordRequired;
 	   
 		public SpyOneProfile() {
 	        this("", "", "","","");

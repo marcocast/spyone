@@ -2,9 +2,16 @@ package com.spyone.model.profiles;
 
 import java.io.Serializable;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 import org.grep4j.core.model.Profile;
 import org.grep4j.core.model.ServerDetails;
 
+@EqualsAndHashCode
+@Getter
+@Setter
 public class SerializableProfile implements Serializable {
 	
 	private static final long serialVersionUID = -7957849274070172271L;
@@ -14,9 +21,6 @@ public class SerializableProfile implements Serializable {
 	protected String host;
 	protected String user;
 	protected String password;
-   //private Integer port;
-   //private String privateKeyLocation;
-   //private boolean isPasswordRequired;
    
 	public SerializableProfile() {
         this("", "", "","","");
@@ -44,51 +48,8 @@ public class SerializableProfile implements Serializable {
 		ServerDetails sd = new ServerDetails(host);
 		sd.setUser(user);
 		sd.setPassword(password);
-//		sd.setPort(port);
-//		sd.setPrivateKeyLocation(privateKeyLocation);
-//		sd.setPasswordRequired(isPasswordRequired);
 		profile.setServerDetails(sd);
 		return profile;
 	}
-
-    public String getProfileName() {
-        return profileName;
-    }
- 
-    public void setProfileName(String pName) {
-    	profileName = pName;
-    }
-        
-    public String getFilePath() {
-        return filePath;
-    }
-    
-    public void setFilePath(String fpath) {
-    	filePath = fpath;
-    }
-    
-    public String getHost() {
-        return host;
-    }
-    
-    public void setHost(String fHost) {
-    	host = fHost;
-    }
-    
-    public String getUser() {
-        return user;
-    }
-    
-    public void setUser(String fUser) {
-    	user = fUser;
-    }
-    
-    public String getPassword() {
-        return password;
-    }
-    
-    public void setPassword(String fPassword) {
-    	password = fPassword;
-    }
 
 }

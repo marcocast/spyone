@@ -22,10 +22,14 @@
               <CheckBox mnemonicParsing="false" selected="true" text="RE" wrapText="false" />
             </children>
           </HBox>
+          <HBox spacing="10.0" />
           <HBox prefHeight="23.0" spacing="10.0">
             <Button fx:id="selectProfilesButton" mnemonicParsing="false" text="Select Profiles" />
-            <Button fx:id="selectOptionsButton" mnemonicParsing="false" text="Select Options" />
-            <Button fx:id="searchButton" mnemonicParsing="false" text="Search" />            
+            <Button fx:id="selectOptionsButton" mnemonicParsing="false" text="Select Options" />                      
+          </HBox>
+          <HBox spacing="10.0" />
+          <HBox prefHeight="23.0" spacing="10.0" alignment="TOP_CENTER">
+          <Button fx:id="searchButton" mnemonicParsing="false" text="Search" /> 
           </HBox>
           <HBox fx:id="expandLinkHBox" alignment="TOP_RIGHT">
               <children>

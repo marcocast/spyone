@@ -1,8 +1,9 @@
-package com.spyone.gui.search.service;
+package com.spyone.gui.grep.service;
 
 import static org.grep4j.core.Grep4j.grep;
 import static org.grep4j.core.Grep4j.regularExpression;
 import static org.grep4j.core.fluent.Dictionary.on;
+import static org.grep4j.core.fluent.Dictionary.options;
 
 import java.util.List;
 
@@ -15,11 +16,11 @@ import org.springframework.stereotype.Service;
 public class GrepService {
 	
 	public GrepResults getResults(String text, List<Profile> profiles, List<Option> options){
-		Option[] optionsToArray = new Option[options.size()];
+		
 		GrepResults grepResults = grep(
 				regularExpression(text),
 				on(profiles),
-				options.toArray(optionsToArray));
+				options(options));
 		return grepResults;
 	}
 

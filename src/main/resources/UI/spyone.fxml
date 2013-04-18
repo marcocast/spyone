@@ -17,6 +17,7 @@
 <TabPane id="MainTabs" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml">
     <tabs>
         <fx:include source="search.fxml"/>
+        <fx:include source="stats.fxml"/>    
         <fx:include source="profile.fxml"/>        
     </tabs>
 </TabPane>
