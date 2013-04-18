@@ -1,4 +1,4 @@
-package com.spyone.gui.grep.popup;
+package com.spyone.gui.components.popup;
 
 import java.util.List;
 

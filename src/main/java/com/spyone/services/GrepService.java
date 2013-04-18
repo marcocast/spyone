@@ -1,4 +1,4 @@
-package com.spyone.gui.grep.service;
+package com.spyone.services;
 
 import static org.grep4j.core.Grep4j.grep;
 import static org.grep4j.core.Grep4j.regularExpression;

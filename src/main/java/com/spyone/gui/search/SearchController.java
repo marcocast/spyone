@@ -31,10 +31,10 @@ import org.grep4j.core.result.GrepResults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.spyone.gui.grep.popup.OptionsChoicePopUp;
-import com.spyone.gui.grep.popup.ProfilesChoicePopUp;
-import com.spyone.gui.grep.service.GrepService;
+import com.spyone.gui.components.popup.OptionsChoicePopUp;
+import com.spyone.gui.components.popup.ProfilesChoicePopUp;
 import com.spyone.model.profiles.SpyOneProfile;
+import com.spyone.services.GrepService;
 
 @Component
 public class SearchController implements Initializable {
