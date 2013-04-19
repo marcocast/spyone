@@ -11,7 +11,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Side;
+import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
@@ -58,6 +61,12 @@ public class StatsController implements Initializable {
 	private BarChart barChart;
 
 	@FXML
+	private LineChart lineChart;
+
+	@FXML
+	private AreaChart areaChart;
+
+	@FXML
 	private TextField textstats;
 
 	@Autowired
@@ -69,6 +78,7 @@ public class StatsController implements Initializable {
 	@Autowired
 	GrepService grepService;
 
+	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		// this is list will be passed and populated in the profilesChoicePopUp
@@ -77,10 +87,13 @@ public class StatsController implements Initializable {
 		// this is list will be passed and populated in the optionsChoicePopUp
 		final List<Option> selectedOptions = new ArrayList<Option>();
 
-		pieChart.setTitle("Search result");
-		pieChart.autosize();
-
-		barChart.autosize();
+		pieChart.setPrefSize(450, 450);
+		pieChart.setLabelLineLength(10);
+		pieChart.setLegendSide(Side.LEFT);
+		pieChart.setLabelsVisible(true);
+		barChart.setPrefSize(450, 700);
+		lineChart.setPrefSize(450, 700);
+		areaChart.setPrefSize(450, 700);
 
 		// this button display the popup
 		if (selectProfilesButton != null) {
@@ -132,10 +145,29 @@ public class StatsController implements Initializable {
 							textstats.getText(), profilesToGrep,
 							selectedOptions);
 
-					pieChart.getData().addAll(buildGrepPieChart(grepResults));
+					for (Profile profile : profilesToGrep) {
 
-					barChart.getData().addAll(buildGrepBarChart(grepResults));
+						pieChart.getData().addAll(buildGrepPieChart(grepResults.filterOnProfile(profile)));
 
+						barChart.getData().addAll(buildGrepBarChart(grepResults.filterOnProfile(profile)));
+
+						lineChart.getData().addAll(buildGrepLineChart(grepResults.filterOnProfile(profile)));
+
+						areaChart.getData().addAll(buildGrepLineChart(grepResults.filterOnProfile(profile)));
+					}
+
+				}
+
+				private Object buildGrepLineChart(GrepResults grepResults) {
+
+					XYChart.Series series1 = new XYChart.Series();
+					series1.setName(grepResults.getSingleResult().getProfileName());
+					for (GrepResult grepResult : grepResults) {
+						series1.getData().add(
+								new XYChart.Data(grepResult.getFileName(), grepResult
+										.totalLines()));
+					}
+					return series1;
 				}
 
 				private Object buildGrepBarChart(GrepResults grepResults) {
@@ -191,5 +223,4 @@ public class StatsController implements Initializable {
 			});
 		}
 	}
-
 }

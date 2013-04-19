@@ -75,6 +75,7 @@ public class SearchController implements Initializable {
 	@Autowired
 	GrepService grepService;
 
+	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		initializeLink();
@@ -90,16 +91,16 @@ public class SearchController implements Initializable {
 		// this button display the popup
 		if (selectProfilesButton != null) {
 			selectProfilesButton.setOnAction(new EventHandler<ActionEvent>() {
-				
+
 				@Override
 				public void handle(ActionEvent t) {
-	
+
 					final Popup popup = profilesChoicePopUp.showPopUp(selectedProfile);
 					if (popup.isShowing()) {
 						popup.hide();
 					} else {
 						popup.show(searchPane.getScene().getWindow());
-		
+
 					}
 				}
 			});
@@ -131,11 +132,11 @@ public class SearchController implements Initializable {
 				public void handle(ActionEvent t) {
 
 					List<Profile> profilesToGrep = buildProfiles(selectedProfile);
-					
+
 					GrepResults grepResults = grepService.getResults(
 							textSearch.getText(), profilesToGrep,
 							selectedOptions);
-					
+
 					searchTextArea.setText(grepResults.toString());
 
 				}

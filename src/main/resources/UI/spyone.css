@@ -345,3 +345,18 @@ linear-gradient(to bottom, derive(-fx-base,+50%), derive(-fx-base,-40%), derive(
 .separator-label {
 -fx-text-fill: orange;
 }
+
+.chart-legend {
+   -fx-background-color:  transparent;
+   -fx-padding: 20px;
+}
+ 
+.chart-legend-item-symbol{
+   -fx-background-radius: 0;
+}
+ 
+.chart-legend-item{
+    -fx-text-fill: #191970;
+}
+
+}

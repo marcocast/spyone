@@ -11,7 +11,7 @@
     <AnchorPane id="heatTab" fx:id="searchPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-1.0" prefHeight="303.0" prefWidth="733.0" rotate="0.0">
       <children>
         <VBox>
-          <HBox prefHeight="23.0" spacing="10.0">
+          <HBox prefHeight="23.0" spacing="10.0" alignment="TOP_CENTER">
             <children>
               <Label prefWidth="50.000099999997474" text="Search" />
               <TextField fx:id="textSearch" prefWidth="465.0">
@@ -23,7 +23,7 @@
             </children>
           </HBox>
           <HBox spacing="10.0" />
-          <HBox prefHeight="23.0" spacing="10.0">
+          <HBox prefHeight="23.0" spacing="10.0" alignment="TOP_CENTER">
             <Button fx:id="selectProfilesButton" mnemonicParsing="false" text="Select Profiles" />
             <Button fx:id="selectOptionsButton" mnemonicParsing="false" text="Select Options" />                      
           </HBox>
