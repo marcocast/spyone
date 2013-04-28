@@ -7,57 +7,59 @@
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 
-<Tab fx:id="statsTab" text="Stats" xmlns:fx="http://javafx.com/fxml" fx:controller="com.spyone.gui.stats.StatsController">
-  <content>
-    <AnchorPane id="heatTab" fx:id="statsPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-1.0" prefHeight="303.0" prefWidth="733.0" rotate="0.0">
-      <children>
-        <VBox VBox.vgrow="ALWAYS">
-          <HBox prefHeight="23.0" spacing="10.0" alignment="TOP_CENTER">
-            <children>
-              <Label prefWidth="50.000099999997474" text="stats" />
-              <TextField fx:id="textstats" prefWidth="465.0">
-                <effect>
-                  <DropShadow />
-                </effect>
-              </TextField>
-              <CheckBox mnemonicParsing="false" selected="true" text="RE" wrapText="false" />
-            </children>
-          </HBox>
-          <HBox prefHeight="23.0" spacing="10.0" alignment="TOP_CENTER">
-            <Button fx:id="selectProfilesButton" mnemonicParsing="false" text="Select Profiles" />
-            <Button fx:id="selectOptionsButton" mnemonicParsing="false" text="Select Options" />
-            <Button fx:id="statsButton" mnemonicParsing="false" text="create graphs" />
-          </HBox>
-          <HBox spacing="10.0" />
-          <HBox spacing="10.0" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
-            <PieChart id="PieChart" fx:id="pieChart" />
-            <BarChart fx:id="barChart">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </BarChart>
-            <LineChart fx:id="lineChart">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </LineChart>
-            <AreaChart fx:id="areaChart">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </AreaChart>
-          </HBox>
-        </VBox>
-      </children>
-    </AnchorPane>
-  </content>
+<Tab fx:id="statsTab" text="Stats" xmlns:fx="http://javafx.com/fxml"
+	fx:controller="com.spyone.gui.stats.StatsController">
+	<content>
+		<FlowPane id="statsTab" fx:id="statsPane" rotate="0.0">
+			<children>
+				<HBox alignment="TOP_CENTER" prefHeight="23.0" spacing="10.0">
+					<children>
+						<Label prefWidth="50.000099999997474" text="stats" />
+						<TextField fx:id="textstats" prefWidth="465.0">
+							<effect>
+								<DropShadow />
+							</effect>
+						</TextField>
+						<CheckBox mnemonicParsing="false" selected="true" text="RE"
+							wrapText="false" />
+					</children>
+				</HBox>
+				<HBox alignment="TOP_CENTER" prefHeight="23.0" spacing="10.0">
+					<Button fx:id="selectProfilesButton" mnemonicParsing="false"
+						text="Select Profiles" />
+					<Button fx:id="selectOptionsButton" mnemonicParsing="false"
+						text="Select Options" />
+					<Button fx:id="statsButton" mnemonicParsing="false" text="create graphs" />
+				</HBox>
+				<HBox spacing="10.0" />
+				<HBox spacing="10.0">
+					<PieChart id="PieChart" fx:id="pieChart" />
+					<BarChart fx:id="barChart">
+						<xAxis>
+							<CategoryAxis side="BOTTOM" />
+						</xAxis>
+						<yAxis>
+							<NumberAxis side="LEFT" />
+						</yAxis>
+					</BarChart>
+					<LineChart fx:id="lineChart">
+						<xAxis>
+							<CategoryAxis side="BOTTOM" />
+						</xAxis>
+						<yAxis>
+							<NumberAxis side="LEFT" />
+						</yAxis>
+					</LineChart>
+					<AreaChart fx:id="areaChart">
+						<xAxis>
+							<CategoryAxis side="BOTTOM" />
+						</xAxis>
+						<yAxis>
+							<NumberAxis side="LEFT" />
+						</yAxis>
+					</AreaChart>
+				</HBox>
+			</children>
+		</FlowPane>
+	</content>
 </Tab>

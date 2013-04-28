@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.geometry.Side;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
@@ -20,8 +21,9 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Popup;
+import javafx.stage.Screen;
 
 import org.grep4j.core.model.Profile;
 import org.grep4j.core.model.ProfileBuilder;
@@ -52,7 +54,7 @@ public class StatsController implements Initializable {
 	public Button selectOptionsButton;
 
 	@FXML
-	private AnchorPane statsPane;
+	private FlowPane statsPane;
 
 	@FXML
 	private PieChart pieChart;
@@ -80,6 +82,10 @@ public class StatsController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+		statsPane.setPrefWidth(primaryScreenBounds.getWidth());
+		
 
 		// this is list will be passed and populated in the profilesChoicePopUp
 		final List<SpyOneProfile> selectedProfile = new ArrayList<SpyOneProfile>();
@@ -87,13 +93,13 @@ public class StatsController implements Initializable {
 		// this is list will be passed and populated in the optionsChoicePopUp
 		final List<Option> selectedOptions = new ArrayList<Option>();
 
-		pieChart.setPrefSize(450, 450);
+		//pieChart.setPrefSize(450, 450);
 		pieChart.setLabelLineLength(10);
 		pieChart.setLegendSide(Side.LEFT);
 		pieChart.setLabelsVisible(true);
-		barChart.setPrefSize(450, 700);
-		lineChart.setPrefSize(450, 700);
-		areaChart.setPrefSize(450, 700);
+		//barChart.setPrefSize(450, 700);
+		//lineChart.setPrefSize(450, 700);
+		//areaChart.setPrefSize(450, 700);
 
 		// this button display the popup
 		if (selectProfilesButton != null) {
